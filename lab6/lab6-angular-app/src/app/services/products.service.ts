@@ -21,4 +21,8 @@ export class ProductsService {
     return this.product_list;
   }
 
+  getSomeProduct(p_id: number){
+    return this.product_list[p_id]
+  }
+
 }
