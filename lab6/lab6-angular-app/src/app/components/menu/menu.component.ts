@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { productsType } from 'src/app/products.model';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -8,7 +9,11 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private cartService: CartService) { }
+  cart: productsType = []
+
+  constructor(private cartService: CartService) { 
+      this.cart = this.cartService.getCart()
+  }
 
   ngOnInit(): void {
   }
@@ -20,11 +25,5 @@ export class MenuComponent implements OnInit {
   getSumPrice(){
     return this.cartService.getsumPrice();
   }
-
-  getCart_menu(){
-    return this.cartService.getCart();
-  }
-
-  cart: any = this.cartService.getCart()
 
 }
