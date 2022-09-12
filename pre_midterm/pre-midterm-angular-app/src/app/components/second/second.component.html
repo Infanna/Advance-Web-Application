@@ -66,10 +66,10 @@
                                                 Quantity is required.
                                             </div>
                                             <div *ngIf="quantity?.errors?.['min']">
-                                                Quantity must to be greater than equal 1.
+                                                Quantity must be between (1-50)
                                             </div>
                                             <div *ngIf="quantity?.errors?.['max']">
-                                                Quantity must to be less than equal 50.
+                                                Quantity must be between (1-50)
                                             </div>
                                         </div>
                                     </div>
