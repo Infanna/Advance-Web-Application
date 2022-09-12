@@ -38,32 +38,6 @@ export class FirstComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getName() {
-    return this.profile.name;
-  }
-  getStid(){
-    return this.profile.studentid;
-  }
-  getGender(){
-    return this.profile.gender;
-  }
-  getBy() {
-    return this.profile.birthyear;
-  }
-  getEm(){
-    return this.profile.email;
-  }
-  getPhone(){
-    return this.profile.phone;
-  }
-  getImg() {
-    return this.profile.img;
-  }
-  
-  getComment(){
-    return this.profile.comment;
-  }
-
   onAddClick($e?:any){
     alert(this.profile.address);
   }
