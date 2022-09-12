@@ -1,0 +1,22 @@
+
+npm install bootstrap@4.6 jquery popper.js
+
+===========
+
+"styles": [
+	"src/styles.css",
+	"node_modules/bootstrap/dist/css/bootstrap.min.css"
+	],
+"scripts": [
+	"node_modules/jquery/dist/jquery.min.js",
+	"node_modules/popper.js/dist/umd/popper.min.js",
+	"node_modules/bootstrap/dist/js/bootstrap.min.js"
+	]
+
+===========
+
+"https://i.ibb.co/n1xSPdC/me.jpg"
+
+===========
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">

@@ -10,7 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductsComponent implements OnInit {
 
   constructor(
-      private protectsService: ProductsService,
+      private productService: ProductsService,
       private cartService: CartService, 
     ) { }
 
@@ -18,7 +18,7 @@ export class ProductsComponent implements OnInit {
   }
 
   getAllProduct(){
-    return this.protectsService.getAllProduct()
+    return this.productService.getAllProduct()
   }
 
   addToCart(p_id: number){

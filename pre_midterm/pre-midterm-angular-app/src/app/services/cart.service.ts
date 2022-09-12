@@ -1,24 +1,31 @@
 import { Injectable } from '@angular/core';
-import { productsType } from '../products.model';
-import { ProductsService } from './products.service';
+import { productsModel } from '../product.model'
+import { ProductService } from './product.service';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class CartService {
+
 
   counter : number = 0 ;
   sumPrice : number = 0 ;
-  cart : productsType = []
+  cart : productsModel = []
 
-  constructor(
-    private productService: ProductsService,
-  ) { }
+
+  constructor(private productService: ProductService) { }
+
+  // add(p_id: number){
+  //   console.log('add id:'+p_id)
+  //   this.cart.push(this.productService.getProd(p_id))
+  //   this.counter = this.cart.length;
+  // }
 
   add(p_id : number){
     console.log('Add product id: '+p_id+' to cart');
     this.cart.push(this.productService.getSomeProduct(p_id));
-    this.sumPrice += this.productService.getSomeProduct(p_id).p_price;
+    this.sumPrice += this.productService.getSomeProduct(p_id).price;
     this.counter = this.cart.length;
   }
 
@@ -33,5 +40,6 @@ export class CartService {
   getCart(){
     return this.cart
   }
+    
 
 }
