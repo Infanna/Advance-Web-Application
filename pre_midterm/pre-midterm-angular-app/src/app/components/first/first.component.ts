@@ -42,4 +42,8 @@ export class FirstComponent implements OnInit {
     alert(this.profile.address);
   }
 
+  getAge(){
+    return new Date().getFullYear() - this.profile.birthyear
+  }
+
 }
