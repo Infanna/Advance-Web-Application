@@ -32,8 +32,6 @@ export class ThirdComponent implements OnInit {
     this.productService.products[p_id].quantity -= 1
   }
 
-  getCounter(){
-    return this.cartService.getCounter();
-  }
+
 
 }
