@@ -16,7 +16,7 @@ export class NewquizComponent implements OnInit {
 
   imgSrc!: string;
   check!: string;
-  checknumber!: string;
+  checknumber: string = "4";
   show: boolean = true;
 
   productForm = new FormGroup({
