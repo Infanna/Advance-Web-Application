@@ -15,8 +15,8 @@ import { Validators } from '@angular/forms';
 export class NewquizComponent implements OnInit {
 
   imgSrc!: string;
-  check!: string;
-  checknumber: string = "4";
+  checkAnswer!: string;
+  checkNumber: string = "4";
   show: boolean = true;
 
   productForm = new FormGroup({
@@ -47,15 +47,15 @@ export class NewquizComponent implements OnInit {
     this.show = !this.show
   }
 
-  ngClassMethod1() { if (this.check == "1") { return true } else { return false } }
-  ngClassMethod2() { if (this.check == "2") { return true } else { return false } }
-  ngClassMethod3() { if (this.check == "3") { return true } else { return false } }
-  ngClassMethod4() { if (this.check == "4") { return true } else { return false } }
+  ngClassMethod1() { if (this.checkAnswer == "1") { return true } else { return false } }
+  ngClassMethod2() { if (this.checkAnswer == "2") { return true } else { return false } }
+  ngClassMethod3() { if (this.checkAnswer == "3") { return true } else { return false } }
+  ngClassMethod4() { if (this.checkAnswer == "4") { return true } else { return false } }
 
   ngClassNumber2() { 
     this.show = false
-    if(this.check == "3" || this.check == "4"){
-      this.check = ""
+    if(this.checkAnswer == "3" || this.checkAnswer == "4"){
+      this.checkAnswer = ""
     }  
     
   }

@@ -72,10 +72,10 @@
                                 <fieldset>
                                     <div class="some-class">
                                         <label>2 Choice</label>
-                                        <input [(ngModel)]="checknumber" (click)="ngClassNumber2()" type="radio"
+                                        <input (click)="ngClassNumber2()" type="radio"
                                             class="radio" formControlName='number' value="2" >
                                         <label>4 Choice</label>
-                                        <input [(ngModel)]="checknumber" (click)="ngClassNumber4()" type="radio"
+                                        <input [(ngModel)]="checkNumber" (click)="ngClassNumber4()" type="radio"
                                             class="radio" formControlName='number' value="4" >
 
                                     </div>
@@ -125,17 +125,17 @@
                                         <fieldset>
                                             <div class="some-class">
                                                 <label>Choice1</label>
-                                                <input [(ngModel)]="check" type="radio" class="radio"
+                                                <input [(ngModel)]="checkAnswer" type="radio" class="radio"
                                                     formControlName='answer' value="1">
                                                 <label>Choice2</label>
-                                                <input [(ngModel)]="check" type="radio" class="radio"
+                                                <input [(ngModel)]="checkAnswer" type="radio" class="radio"
                                                     formControlName='answer' value="2">
                                                 <a *ngIf="show">
                                                     <label>Choice3</label>
-                                                    <input [(ngModel)]="check" type="radio" class="radio"
+                                                    <input [(ngModel)]="checkAnswer" type="radio" class="radio"
                                                         formControlName='answer' value="3">
                                                     <label>Choice4</label>
-                                                    <input [(ngModel)]="check" type="radio" class="radio"
+                                                    <input [(ngModel)]="checkAnswer" type="radio" class="radio"
                                                         formControlName='answer' value="4">
                                                 </a>
                                             </div>
