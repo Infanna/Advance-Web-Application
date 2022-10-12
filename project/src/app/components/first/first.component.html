@@ -83,8 +83,21 @@
                             </div>
                         </div>
 
+                        <div class="row" style="padding: 5px;">
+                            <div class="col-lg-2"><i class="fa fa-address-book" aria-hidden="true"></i> ImgSrc:</div>
+                            <div class="col-lg-10 text-left">
+                                <div class="form-group">
+                                    <label for="comment">{{this.imgSrc}} </label>
+                                  </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+            </div>
+            <div class="col-md-2">
+                <h4 class="card-title"> Picture</h4>
+                <img [src]="this.imgSrc || 'assets/image/dog.jpg'" class="img-thumbnail" alt="Your Image">
             </div>
         </div>
     </div>

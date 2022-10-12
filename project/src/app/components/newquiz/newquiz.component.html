@@ -1,0 +1,191 @@
+<div class="card" style="margin-left: 300px; margin-right: 300px; background-color: black;">
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4" style="margin: auto;">
+                <img [src]="this.imgSrc || 'https://cdn.discordapp.com/attachments/1026870373700083732/1029786860471464026/Group_26.png'"
+                    class="img-thumbnail" alt="Your Image">
+            </div>
+
+        </div>
+
+        <div class="row" style="margin-top: 20px; margin-left: 550px;">
+            <div></div>
+            <div class="col-lg-8">
+                <div class="card" style="width: 380; height: 100px; background-color:rgb(32, 114, 32);">
+                    <div class="col-lg-8 text-center" style="margin:auto">{{productForm.value.question}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 20px; margin-left: 550px;">
+            <div></div>
+            <div class="col-lg-4">
+                <div class="card" style="width: 380; height: 100px;" [ngClass]="{'alert-success': ngClassMethod1()}">
+                    <div class="col-lg-11 text-center" style="margin:auto">{{productForm.value.choice1}}</div>
+                </div>
+            </div>
+            <div></div>
+            <div class="col-lg-4">
+                <div class="card" style="width: 380; height: 100px;" [ngClass]="{'alert-success': ngClassMethod2()}">
+                    <div class="col-lg-11 text-center" style="margin:auto">{{productForm.value.choice2}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 20px; margin-left: 550px" *ngIf="show">
+            <div></div>
+            <div class="col-lg-4">
+                <div class="card" style="width: 380; height: 100px;" [ngClass]="{'alert-success': ngClassMethod3()}">
+                    <div class="col-lg-11 text-center" style="margin:auto">{{productForm.value.choice3}}</div>
+                </div>
+            </div>
+            <div></div>
+            <div class="col-lg-4">
+                <div class="card" style="width: 380; height: 100px;" [ngClass]="{'alert-success': ngClassMethod4()}">
+                    <div class="col-lg-11 text-center" style="margin:auto">{{productForm.value.choice4}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md">
+                <div class="card">
+                    <div class="card-header">
+                        Create Question
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="productForm">
+                            <div class="row" style="padding: 5px;">
+                                <div class="col-lg-2"> Question :</div>
+                                <div class="col-lg-4 text-left">
+                                    <div class="form-group">
+                                        <input type="string" class="form-control" formControlName='question'
+                                            maxlength="80">
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    Number of questions :</div>
+                                <fieldset>
+                                    <div class="some-class">
+                                        <label>2 Choice</label>
+                                        <input [(ngModel)]="checknumber" (click)="ngClassNumber2()" type="radio"
+                                            class="radio" formControlName='number' value="2">
+                                        <label>4 Choice</label>
+                                        <input [(ngModel)]="checknumber" (click)="ngClassNumber4()" type="radio"
+                                            class="radio" formControlName='number' value="4">
+
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="row" style="padding: 5px;">
+                                <div class="col-lg-2"> Choice 1 :</div>
+                                <div class="col-lg-4 text-left">
+                                    <div class="form-group">
+                                        <input type="string" class="form-control" formControlName='choice1'
+                                            maxlength="50">
+                                    </div>
+                                </div>
+                                <div class="col-lg-2"> Choice 2 :</div>
+                                <div class="col-lg-4 text-left">
+                                    <div class="form-group">
+                                        <input type="string" class="form-control" formControlName='choice2'
+                                            maxlength="50">
+                                    </div>
+                                </div>
+                            </div>
+                            <a *ngIf="show">
+                                <div class="row" style="padding: 5px;">
+                                    <div class="col-lg-2"> Choice 3 :</div>
+                                    <div class="col-lg-4 text-left">
+                                        <div class="form-group">
+                                            <input type="string" class="form-control" formControlName='choice3'
+                                                maxlength="50">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-2"> Choice 4 :</div>
+                                    <div class="col-lg-4 text-left">
+                                        <div class="form-group">
+                                            <input type="string" class="form-control" formControlName='choice4'
+                                                maxlength="50">
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="row" style="padding: 5px;">
+                                <div class="col-lg-2"> Answer :</div>
+                                <div class="col-lg-4 text-left">
+                                    <div class="form-group" style="font-size: 20px;">
+                                        <fieldset>
+                                            <div class="some-class">
+                                                <label>Choice1</label>
+                                                <input [(ngModel)]="check" type="radio" class="radio"
+                                                    formControlName='answer' value="1">
+                                                <label>Choice2</label>
+                                                <input [(ngModel)]="check" type="radio" class="radio"
+                                                    formControlName='answer' value="2">
+                                                <a *ngIf="show">
+                                                    <label>Choice3</label>
+                                                    <input [(ngModel)]="check" type="radio" class="radio"
+                                                        formControlName='answer' value="3">
+                                                    <label>Choice4</label>
+                                                    <input [(ngModel)]="check" type="radio" class="radio"
+                                                        formControlName='answer' value="4">
+                                                </a>
+                                            </div>
+                                        </fieldset>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding: 5px;">
+                                <div class="col-lg-2"> Picture :</div>
+                                <div class="col-lg-4 text-left">
+                                    <div class="form-group">
+                                        <input (change)="onChange($event)" type="file" formControlName='picture'>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="row" style="padding: 5px;">
+                            <div class="col-lg-2"><i class="fa fa-address-book" aria-hidden="true"></i> Json:</div>
+                            <div class="col-lg-10 text-left">
+                                <div class="form-group">
+                                    <label for="comment">{{productForm.value|json}} </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding: 5px;">
+                            <div class="col-lg-2"><i class="fa fa-address-book" aria-hidden="true"></i> Image:</div>
+                            <div class="col-lg-10 text-left">
+                                <div class="form-group">
+                                    <label for="comment">{{this.imgSrc}}</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row" style="padding: 5px;">
+                            <div class="col-lg-2"><i class="fa fa-address-book" aria-hidden="true"></i> Test:</div>
+                            <div class="col-lg-10 text-left">
+                                <div class="form-group">
+                                    <label for="comment"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
