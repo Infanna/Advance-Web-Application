@@ -1,0 +1,104 @@
+<div class="card">
+    <div class="card-body">
+
+        <div class="row">
+
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header">
+                        Profile
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="productForm">
+                            <div class="row" style="padding: 5px;">
+                                <div class="col-lg-2"> Prefix :</div>
+                                <div class="col-lg-4 text-left">
+                                    <div class="form-group" >
+                                        <select class="form-control" formControlName="prefix">
+                                        <option value="" ></option>
+                                        <option *ngFor="let item of prefix">{{item}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2"> Gender :</div>
+                                <div class="col-lg-4 text-left">
+                                    <div class="form-group">
+                                        Male <input type="radio" class="radiobutton" formControlName='gender' value="1"
+                                                style="margin-left: 10px; margin-right: 40px; height: 15px; width: 15px;">
+                                        Female <input type="radio" class="radio" formControlName='gender' value="2" 
+                                                style="margin-left: 10px; margin-right: 40px; height: 15px; width: 15px;">
+                                        LGBT <input type="radio" class="radio" formControlName='gender' value="3" 
+                                                style="margin-left: 10px; margin-right: 40px; height: 15px; width: 15px;">
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="row" style="padding: 5px;">
+                                <div class="col-lg-2"> Firstname :</div>
+                                    <div class="col-lg-4 text-left">
+                                        <div class="form-group">
+                                            <input type="string" class="form-control" formControlName='firstname'>
+                                        </div>
+                                    </div>
+                                <div class="col-lg-2"> Lastname :</div>
+                                    <div class="col-lg-4 text-left">
+                                        <div class="form-group">
+                                            <input type="string" class="form-control" formControlName='lastname'>
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <div class="row" style="padding: 5px;">
+                                <div class="col-lg-2"> Birthday :</div>
+                                    <div class="col-lg-4 text-left">
+                                        <div class="form-group">
+                                            <input type="date" class="form-control" formControlName='birthday'>
+                                        </div>
+                                    </div>
+
+                                <div class="col-lg-2"> Tel :</div>
+                                    <div class="col-lg-4 text-left">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" formControlName='tel'>
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <div class="row" style="padding: 5px;">
+                                <div class="col-lg-2"> Picture :</div>
+                                    <div class="col-lg-4 text-left">
+                                        <div class="form-group">
+                                            <input type="file" formControlName='picture' (change)="onChange($event)">
+                                        </div>
+                                    </div>
+                            </div>
+                        </form>
+
+                        <div class="row" style="padding: 5px;">
+                            <div class="col-lg-2"><i class="fa fa-address-book" aria-hidden="true"></i> Json:</div>
+                            <div class="col-lg-10 text-left">
+                                <div class="form-group">
+                                    <label for="comment">{{productForm.value|json}} </label>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding: 5px;">
+                            <div class="col-lg-2"><i class="fa fa-address-book" aria-hidden="true"></i> ImgSrc:</div>
+                            <div class="col-lg-10 text-left">
+                                <div class="form-group">
+                                    <label for="comment">{{this.imgSrc}} </label>
+                                  </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <h4 class="card-title"> Picture</h4>
+                <img [src]="this.imgSrc || 'assets/image/dog.jpg'" class="img-thumbnail" alt="Your Image">
+            </div>
+        </div>
+    </div>
+</div>

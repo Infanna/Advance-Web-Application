@@ -1,0 +1,26 @@
+const bcrypt = require('bcryptjs');
+
+const makeHash = async (myText) => {
+    const resultPromise = await bcrypt.hash(myText, 10);
+    return resultPromise
+}
+
+const compareHash = async (testText, myHash) => {
+    const resultCompare = await bcrypt.compare(testText, myHash);
+    return resultCompare;
+}
+
+const testText = "6201920";
+
+makeHash(testText).then( hash => {
+    console.log(hash);
+
+    compareHash(testText, hash).then(result => {
+        console.log("result", result);
+    }).catch( err => {
+        console.log("err",err);
+    });
+
+}).catch(err => {
+    console.log(err);
+})
