@@ -53,11 +53,15 @@ export class NewquizComponent implements OnInit {
   ngClassMethod4() { if (this.check == "4") { return true } else { return false } }
 
   ngClassNumber2() { 
-     this.show = false  
+    this.show = false
+    if(this.check == "3" || this.check == "4"){
+      this.check = ""
+    }  
+    
   }
   ngClassNumber4() { 
     this.show = true  
- }
+  }
 
 
 }
