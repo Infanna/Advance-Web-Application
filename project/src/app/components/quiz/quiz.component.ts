@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { CommentService } from 'src/app/service/comment.service';
+import { DataService } from 'src/app/service/data.service';
+CommentService
+
 
 @Component({
   selector: 'app-quiz',
@@ -9,31 +13,40 @@ import { Validators } from '@angular/forms';
 })
 export class QuizComponent implements OnInit {
 
-  comment!: string
-  imgSrc!: string;
-  prefix: string[] = ['Mr.','Mrs.','Ms.'];
-
+  imgSrc: string = 'https://cdn.discordapp.com/attachments/1026870373700083732/1029786860471464026/Group_26.png'
 
   productForm = new FormGroup({
-    prefix: new FormControl(''),
-    gender: new FormControl(''),
-    firstname : new FormControl(''),
-    lastname : new FormControl(''),
-    birthday : new FormControl(''),
-    tel : new FormControl(''),
-   });
+    name: new FormControl(''),
+    text: new FormControl(''),
+  });
+
+  constructor(
+    private dataService: DataService,
+    private commentService: CommentService
+  ) { }
 
   ngOnInit(): void {
   }
 
-  onChange(event:any) {
-    if (event.target.files && event.target.files[0]) {
-      const render = new FileReader();
-      render.onload = (e: any) => {
-        this.imgSrc = e.target.result;
-      };
-      render.readAsDataURL(event.target.files[0])
-    }
+  getAlldata() {
+    return this.dataService.getAlldata()
   }
+
+  getAllcomment() {
+    return this.commentService.getAllcomment().reverse()
+  }
+
+  addComment() {
+    this.commentService.comment.push(
+      {
+        name: this.productForm.value.name || 'test',
+        text: this.productForm.value.text || '',
+      }
+    )
+    alert("Add Comment Success")
+  }
+
+
+
 
 }
