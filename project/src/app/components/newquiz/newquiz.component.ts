@@ -21,7 +21,7 @@ export class NewquizComponent implements OnInit {
   show: boolean = true;
   choice3_dimmy!: string;
   choice4_dimmy!: string;
-  array = Array(false, false, false, false, false);
+  array = Array(false, false, false, false, false, false);
 
   productForm = new FormGroup({
     question: new FormControl('', [Validators.required]),
@@ -92,14 +92,14 @@ export class NewquizComponent implements OnInit {
   }
 
   addData() {
-    if (this.question?.errors?.['required']) {this.array[0] = true } else {this.array[0] = false}
-    if (this.choice1?.errors?.['required']) {this.array[1] = true} else {this.array[1] = false}
-    if (this.choice2?.errors?.['required']) {this.array[2] = true} else {this.array[2] = false}
+    this.array[0] = this.question?.errors?.['required'] ? true : false
+    this.array[1] = this.choice1?.errors?.['required'] ? true : false
+    this.array[2] = this.choice2?.errors?.['required'] ? true : false
     if (this.checkNumber == "4") {
-      if (this.choice3?.errors?.['required']) {this.array[3] = true} else {this.array[3] = false}
-      if (this.choice4?.errors?.['required']) {this.array[4] = true} else {this.array[4] = false}
+      this.array[3] = this.choice3?.errors?.['required'] ? true : false
+      this.array[4] = this.choice4?.errors?.['required'] ? true : false
     }
-    if (this.answer?.errors?.['required']) {this.array[5] = true} else {this.array[5] = false}
+    this.array[5] = this.answer?.errors?.['required'] ? true : false
     if (this.array.every(v => v == false)) {
       this.dataService.data.push(
         {
@@ -126,5 +126,6 @@ export class NewquizComponent implements OnInit {
     this.productForm.controls['number'].setValue("4");
     this.show = true
     this.imgSrc = ""
+    console.log(this.array)
   }
 }
