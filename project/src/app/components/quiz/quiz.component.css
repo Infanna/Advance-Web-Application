@@ -1,5 +1,6 @@
 div{
     color: white;
+    white-space: normal;
 }
 
 input{
@@ -28,6 +29,7 @@ img{
     border-bottom-left-radius: 90px;
     border-bottom-right-radius: 90px;
     border-color:black ;
+    
 }
 
 textarea{
@@ -39,3 +41,19 @@ textarea{
     margin-top: 120px;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(9, 74, 12); 
+    border-radius: 10px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b1f7b6; 
+}
