@@ -98,11 +98,7 @@
                 </tr>
             </tbody>
         </div>
-
     </table>
-    <ng-template #noResults>
-        <p>No results found for "{{searchText}}".</p>
-    </ng-template>
     <div class="card" style="background-color: black;">
         <form [formGroup]="productForm">
             <div class="row">
@@ -122,17 +118,10 @@
                 </div>
             </div>
         </form>
-        <div style="margin-left: 170px; margin-top: 70px; height: 700px;overflow-y: scroll;">
+        <div style="margin: 70px 0 250px 70px; height: 700px;overflow-y: scroll;">
             <span *ngFor="let item of getAllcomment(); index as i">
                 <textarea rows="5" cols="35" disabled
-                    style="resize: none; margin-left: 80px ;margin-top: 40px;background-color: rgb(50,50,50); color: white; font-size: 30px;">{{item.text}}</textarea>
-                <!-- <a style="font-size: 20px; white-space: pre-line">{{item.name}}</a> -->
+                    style="resize: none; margin: 40px 0 0 80px;background-color: rgb(50,50,50); color: white; font-size: 30px;">{{item.text}}</textarea>
             </span>
-            <!-- <span *ngFor="let item of getAllcomment(); index as i"
-                style="word-wrap: break-word;overflow-wrap: break-word; ">
-                x
-            </span> -->
         </div>
-
-        <br><br><br><br><br>
     </div>
