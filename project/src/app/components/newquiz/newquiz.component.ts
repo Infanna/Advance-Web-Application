@@ -46,13 +46,7 @@ export class NewquizComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.checkNumber == "4") {
-      this.productForm.get('choice3')?.setValidators(Validators.required)
-      this.productForm.get('choice4')?.setValidators(Validators.required)
-    } else {
-      this.productForm.get('choice3')?.clearValidators();
-      this.productForm.get('choice4')?.clearValidators();
-    }
+    this.ngClassNumber4()
   }
 
   onChange(event: any) {
@@ -80,6 +74,8 @@ export class NewquizComponent implements OnInit {
     this.choice4_dimmy = this.productForm.value.choice4 || ''
     this.productForm.controls['choice3'].reset()
     this.productForm.controls['choice4'].reset()
+    this.productForm.get('choice3')?.clearValidators();
+    this.productForm.get('choice4')?.clearValidators();
     this.array[3] = false
     this.array[4] = false
     if (this.checkAnswer == "3" || this.checkAnswer == "4") {
@@ -91,6 +87,8 @@ export class NewquizComponent implements OnInit {
     this.show = true
     this.productForm.controls['choice3'].setValue(this.choice3_dimmy);
     this.productForm.controls['choice4'].setValue(this.choice4_dimmy);
+    this.productForm.get('choice3')?.setValidators(Validators.required)
+    this.productForm.get('choice4')?.setValidators(Validators.required)
   }
 
   addData() {
