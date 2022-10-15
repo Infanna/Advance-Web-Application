@@ -8,6 +8,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { NewquizComponent } from './components/newquiz/newquiz.component';
+import { FilterPipe } from './filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -15,13 +17,15 @@ import { NewquizComponent } from './components/newquiz/newquiz.component';
     NavbarComponent,
     HomeComponent,
     QuizComponent,
-    NewquizComponent
+    NewquizComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

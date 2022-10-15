@@ -21,7 +21,8 @@
         <div style="margin: 30px 0 0 200px; font-size: 35px;">
             สวัสดี User พร้อมที่จะเล่นเกมหรือยัง?!
             <div>
-                <input type="text" placeholder="search ...." style="width: 500px; height:auto;">
+                <input type="text" [(ngModel)]="searchText" placeholder="search ...."
+                    style="width: 500px; height:auto;">
 
                 <button class="fa fa-search fa-xs" aria-hidden="true" style="position: relative;
                                top: 0.5px;
@@ -38,99 +39,86 @@
             <br>
         </div>
     </div>
-
-    <div class="card-body">
-        <div class="col-lg-12 text-left" style="font-size: 50px;margin-left: 50px;">
-            ปริศนาฟ้าแลบ ดั้งเดิม
-        </div>
-        <div style="margin-left: 20px; width: 2700px;overflow-x: scroll; ">
-            <tbody>
-                <tr>
-                    <th *ngFor="let item of getAlldata(); index as i">
-                        <input type="button" style="margin-left: 85px; margin-top: 30px;">
-                        <div class="col-lg-12 text-center" style="margin-left: 50px; 
-                                    font-size: 37px;
+    <table *ngIf="(gametype_list | filter: searchText).length == gametype_list.length;">
+        <div class="card-body" *ngFor="let gametypes of gametype_list | filter: searchText; let i = index">
+            <div class="col-lg-12 text-left" style="font-size: 50px;margin-left: 50px;margin-top: 100px;">
+                {{gametypes}}
+            </div>
+            <div style="margin-left: 20px;width: 2700px;overflow-x: scroll;">
+                <tbody>
+                    <tr>
+                        <th *ngFor="let item of getAllgroup() | filter: gametypes  let j = index">
+                            <input type="button" style="margin-left: 85px; margin-top: 30px;">
+                            <div class="col-lg-12 text-center" style="margin-left: 50px; 
+                                    font-size: 30px;
                                     ">
-                            ปริศนาฟ้าแลบ n
-                        </div>
-                        <div class="col-lg-12 text-center" style="margin-left: 50px; 
-                               font-size: 22px; color: gray;
+                                {{item.name}}
+                            </div>
+                            <div class="col-lg-12 text-center" style="margin-left: 50px; 
+                               font-size: 22px; color: gray; 
                                ">
-                            create on xx/yy/zzzz
-                        </div>
-                        <div class="col-lg-12 text-center" style="margin-left: 50px; 
+                                create on {{item.date}}
+                            </div>
+                            <div class="col-lg-12 text-center" style="margin-left: 50px; 
                         font-size: 22px; color: green;
                         ">
-                            Player : 2
-                        </div>
-                    </th>
-                </tr>
-            </tbody>
+                                Player : {{item.player}}
+                            </div>
+                        </th>
+                    </tr>
+                </tbody>
+            </div>
         </div>
-        <div class="col-lg-12 text-left" style="font-size: 50px;margin-left: 50px;margin-top: 100px; ">
-            คณิตคิดเร็ว
-        </div>
-        <div style="margin-left: 20px; width: 2700px;overflow-x: scroll; ">
-            <tbody>
-                <tr>
-                    <th *ngFor="let item of [].constructor(10); let i = index">
-                        <input type="button" style="margin-left: 85px; margin-top: 30px;">
-                        <div class="col-lg-12 text-center" style="margin-left: 50px; 
-                                    font-size: 37px;
-                                    ">
-                            คณิตคิดเร็ว n
-                        </div>
-                        <div class="col-lg-12 text-center" style="margin-left: 50px; 
-                               font-size: 22px; color: gray;
-                               ">
-                            create on xx/yy/zzzz
-                        </div>
-                        <div class="col-lg-12 text-center" style="margin-left: 50px; 
-                        font-size: 22px; color: green;
-                        ">
-                            Player : 2
-                        </div>
-                    </th>
-                </tr>
-            </tbody>
-        </div>
+    </table>
+    <table *ngIf="(getAllgroup() | filter: searchText).length > 0 && (getAllgroup() | filter: searchText).length != (getAllgroup()).length">
         <div class="col-lg-12 text-left" style="font-size: 50px;margin-left: 50px;margin-top: 100px;">
-            Custom Game
+            Searching . . .
         </div>
-        <div style="margin-left: 20px;">
+        <div style="margin-left: 20px;width: 2700px;overflow-x: scroll;">
             <tbody>
                 <tr>
-                    <th *ngFor="let item of getAlldata(); index as i">
+                    <th *ngFor="let item of getAllgroup() | filter: searchText let j = index">
                         <input type="button" style="margin-left: 85px; margin-top: 30px;">
                         <div class="col-lg-12 text-center" style="margin-left: 50px; 
-                                    font-size: 37px;
-                                    ">
-                            Custom n
+                                        font-size: 30px;
+                                        ">
+                            {{item.name}}
                         </div>
                         <div class="col-lg-12 text-center" style="margin-left: 50px; 
-                               font-size: 22px; color: gray;
-                               ">
-                            create on xx/yy/zzzz
+                                   font-size: 22px; color: gray; 
+                                   ">
+                            create on {{item.date}}
                         </div>
                         <div class="col-lg-12 text-center" style="margin-left: 50px; 
-                        font-size: 22px; color: green;
-                        ">
-                            Player : 2
+                            font-size: 22px; color: green;
+                            ">
+                            Player : {{item.player}}
                         </div>
                     </th>
                 </tr>
             </tbody>
         </div>
-    </div>
 
+    </table>
+    <ng-template #noResults>
+        <p>No results found for "{{searchText}}".</p>
+    </ng-template>
     <div class="card" style="background-color: black;">
         <form [formGroup]="productForm">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <textarea rows="6" cols="80" formControlName='text'
+                    <textarea rows="6" cols="80" formControlName='text' maxlength="999"
                         style="margin-left: 110px; font-size: 30px;"></textarea>
                     <button type="button" class="btn btn-success btn-lg" (click)="addComment()"
                         style="position: relative;bottom: 30px;right: 135px;">Comment</button>
+
+                </div>
+                <div *ngIf="text?.invalid && (text?.dirty || text?.touched) || this.alert_comment"
+                    class="alert alert-dark col-md-2 text-center" style="margin: auto;">
+                    <div *ngIf="text?.errors?.['required'] || this.alert_comment"
+                        style="font-size: 30px;color: black;opacity: 0.8;">
+                        ลองพิมอะไรสักหน่อยสิ
+                    </div>
                 </div>
             </div>
         </form>

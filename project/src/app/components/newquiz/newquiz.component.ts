@@ -33,7 +33,6 @@ export class NewquizComponent implements OnInit {
     answer: new FormControl('', [Validators.required]),
   });
 
-  get from() { return this.productForm}
   get question() { return this.productForm.get('question') }
   get number() { return this.productForm.get('number') }
   get choice1() { return this.productForm.get('choice1') }
