@@ -21,6 +21,7 @@ export class ParentComponent implements OnInit,
   @ViewChild(ChildComponent)
   childComponent: ChildComponent;
 
+  id: number ;
   parentData: number ;
   childData: number;
   textMessage: string;
@@ -35,6 +36,7 @@ export class ParentComponent implements OnInit,
   }
 
   ngOnInit(): void {
+    this.id = 0;
     this.parentData = 0;
     this.childData = 0;
     console.log('ngInit Work!')

@@ -23,7 +23,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <app-child *ngIf='showChild' [parentData]="parentData" 
+            <app-child *ngIf='showChild' [parentData]="id" 
                         (messageEvent)="receiveData($event)"></app-child>
         </div>
     </div>

@@ -28,10 +28,17 @@ export class SignupComponent implements OnInit {
 
   get email() {return this.profileForm.get('email');}
   get stdid() {return this.profileForm.get('stdid');}
+  get aliases(){
+    return this.profileForm.get('aliases') as FormArray;
+  }
   
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addAlias(){
+    this.aliases.push(new FormControl(''));
   }
 
 
